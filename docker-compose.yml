@@ -1,0 +1,21 @@
+
+services:
+   db:
+    image: bitnami/postgresql:latest
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=docker
+    ports:
+         - "4444:5432"
+
+
+
+   db_test:
+    image: bitnami/postgresql:latest
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=docker_test
+    ports:
+          - "5555:5432"
