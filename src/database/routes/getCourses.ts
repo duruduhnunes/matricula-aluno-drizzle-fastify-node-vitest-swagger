@@ -55,8 +55,8 @@ export const getCourses: FastifyPluginAsyncZod = async (app) => {
             .from(courses)
             .leftJoin(enrollments, eq(enrollments.courseId, courses.id))
             .orderBy(asc(courses[orderBy]))
-       .limit(2)
-       .offset((page - 1) * 2)
+       .limit(5) //limit é usado para limitar a quantidade de resultados retornados, no caso 5 por pagina
+       .offset((page - 1) * 5) //offset é usado para pular os primeiros resultados, no caso (pagina - 1) * 5, ou seja, se eu estiver na pagina 1, eu pulo 0 resultados, se eu estiver na pagina 2, eu pulo 5 resultados, se eu estiver na pagina 3, eu pulo 10 resultados e assim por diante
        .where(
             and(...conditions) //o and é usado para juntar as condições, o ... é usado para espalhar o array de condições
 )

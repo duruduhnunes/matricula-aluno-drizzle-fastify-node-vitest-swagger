@@ -8,6 +8,8 @@ import { fastifySwagger} from '@fastify/swagger'
 import { createCourses } from "./database/routes/createCourses.ts";
 import { getCourses } from "./database/routes/getCourses.ts";
 import { getCoursesById } from "./database/routes/getCoursesByID.ts";
+import { updateCourses } from "./database/routes/updateCourses.ts";
+import { deleteCourses } from "./database/routes/deleteCourses.ts";
 
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
@@ -34,6 +36,8 @@ app.register(fastifySwaggerUi, {
 app.register(createCourses);
 app.register(getCourses);
 app.register(getCoursesById);
+app.register(updateCourses);
+app.register(deleteCourses)
 
 
 
